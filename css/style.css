@@ -24,3 +24,20 @@ body {
 .fn-18 {
   font-size: 18px;
 }
+
+.theme-btn {
+  background: #28e98c;
+  color: #181818;
+}
+
+.theme-btn:hover {
+  background: transparent;
+  color: #28e98c;
+  border: 1px solid #28e98c;
+}
+
+.player-icon {
+  font-size: 30px;
+  padding: 5px 10px;
+  color: #28e98c;
+}
