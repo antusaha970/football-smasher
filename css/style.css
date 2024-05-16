@@ -1,0 +1,17 @@
+body {
+  font-family: "Raleway", sans-serif;
+  background: #1f1f1f;
+}
+
+.base-color-bg {
+  background: #28e98c;
+}
+.base-color-2-bg {
+  background: #4d4d4d;
+}
+.base-color-text {
+  color: #28e98c;
+}
+.base-color-2-bg {
+  color: #4d4d4d;
+}
