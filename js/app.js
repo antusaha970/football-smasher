@@ -50,13 +50,13 @@ const showPlayersOnUi = (playerArr) => {
             </p>
             <p class="text-white-50">Gender: <b>${player.strGender}</b></p>
             <div class="social d-flex justify-content-center g-5 my-2">
-            <a href="${player.strTwitter}">
+            <a href="https://${player.strTwitter}">
                 <i class="fa-brands fa-x-twitter player-icon"> </i
             ></a>
-            <a href="${player.strInstagram}"
+            <a href="https://${player.strInstagram}"
                 ><i class="fa-brands fa-instagram player-icon"></i
             ></a>
-            <a href="${player.strFacebook}"
+            <a href="https://${player.strFacebook}"
                 ><i class="fa-brands fa-facebook player-icon"></i
             ></a>
             </div>
