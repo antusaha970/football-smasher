@@ -22,7 +22,7 @@ const getUserInput = () => {
 
 const showPlayersOnUi = (playerArr) => {
   if (playerArr) {
-    deleteOldBox();
+    deleteOldBox("box-for-delete");
     const container = document.getElementById("play-card-container");
     playerArr.forEach((player) => {
       let des = player.strDescriptionEN;
@@ -60,7 +60,7 @@ const showPlayersOnUi = (playerArr) => {
                 ><i class="fa-brands fa-facebook player-icon"></i
             ></a>
             </div>
-            <a href="#" class="btn theme-btn">Add to team</a>
+            <button onclick="addToTeam('${player.strCutout}','${player.strPlayer}')"  class="btn theme-btn">Add to team</button>
             <!-- Button trigger modal -->
             <button type="button" class="btn theme-btn" data-bs-toggle="modal" data-bs-target="#${player.idPlayer}">
               Details
@@ -95,13 +95,41 @@ const showPlayersOnUi = (playerArr) => {
   }
 };
 
-const deleteOldBox = () => {
-  const oldBoxCollection = document.getElementsByClassName("box-for-delete");
+const deleteOldBox = (custom) => {
+  const oldBoxCollection = document.getElementsByClassName(custom);
   const oldBoxArr = Array.from(oldBoxCollection);
   for (let i = 0; i < oldBoxArr.length; i++) {
     const element = oldBoxArr[i];
     element.remove();
   }
+};
+
+const myTeam = [];
+const addToTeam = (img, name) => {
+  myTeam.push({ name, img });
+  deleteOldBox("team-player-for-delete");
+  const parent = document.getElementById("my-team");
+  myTeam.forEach((player) => {
+    const div = document.createElement("div");
+    div.classList.add("col-12", "team-player-for-delete");
+    div.innerHTML = `
+          <div
+          class="team-box d-flex justify-content-between align-items-center py-2 px-3 base-color-2-bg rounded-2"
+        >
+          <div>
+            <img
+              src="${player.img}"
+              alt="Player photo"
+              class="img-cutout"
+            />
+          </div>
+          <div>
+            <p class="base-color-text fw-bold fs-1">${player.name}</p>
+          </div>
+        </div>
+    `;
+    parent.appendChild(div);
+  });
 };
 
 fetchInitialPlayers("n");
