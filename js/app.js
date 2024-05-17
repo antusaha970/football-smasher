@@ -106,13 +106,16 @@ const deleteOldBox = (custom) => {
 
 const myTeam = [];
 const addToTeam = (img, name) => {
-  myTeam.push({ name, img });
-  deleteOldBox("team-player-for-delete");
-  const parent = document.getElementById("my-team");
-  myTeam.forEach((player) => {
-    const div = document.createElement("div");
-    div.classList.add("col-12", "team-player-for-delete");
-    div.innerHTML = `
+  if (myTeam.length < 11) {
+    myTeam.push({ name, img });
+    const count = document.getElementById("totalPlayerCount");
+    count.innerText = myTeam.length;
+    deleteOldBox("team-player-for-delete");
+    const parent = document.getElementById("my-team");
+    myTeam.forEach((player) => {
+      const div = document.createElement("div");
+      div.classList.add("col-12", "team-player-for-delete");
+      div.innerHTML = `
           <div
           class="team-box d-flex justify-content-between align-items-center py-2 px-3 base-color-2-bg rounded-2"
         >
@@ -128,8 +131,11 @@ const addToTeam = (img, name) => {
           </div>
         </div>
     `;
-    parent.appendChild(div);
-  });
+      parent.appendChild(div);
+    });
+  } else {
+    alert("Can't add more players!!!!");
+  }
 };
 
 fetchInitialPlayers("n");
