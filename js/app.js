@@ -61,6 +61,32 @@ const showPlayersOnUi = (playerArr) => {
             ></a>
             </div>
             <a href="#" class="btn theme-btn">Add to team</a>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn theme-btn" data-bs-toggle="modal" data-bs-target="#${player.idPlayer}">
+              Details
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="${player.idPlayer}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog ">
+                <div class="modal-content base-color-2-bg">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5 text-white-50 fw-bold" id="exampleModalLabel">Name: ${player.strPlayer}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="text-white-50 fn-18">Nationality: <b> ${player.strNationality} </b> </p>
+                    <p class="text-white-50 fn-18">Birth-location: <b> ${player.strBirthLocation} </b> </p>
+                    <p class="text-white-50 fn-18">Status: <b> ${player.strStatus} </b> </p>
+                    <p class="text-white-50 fn-18">Description: <b> ${player.strDescriptionEN} </b> </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn theme-btn" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
         </div>
         </div>
       `;
