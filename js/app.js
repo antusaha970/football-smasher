@@ -30,7 +30,7 @@ const showPlayersOnUi = (playerArr) => {
         des = des.slice(0, 145);
       }
       const div = document.createElement("div");
-      div.classList.add("col-12", "col-sm-6", "col-md-5", "box-for-delete");
+      div.classList.add("col-12", "col-sm-6", "col-md-6", "box-for-delete");
       div.innerHTML = `
         <div class="card" style="width: 100%">
         <img
