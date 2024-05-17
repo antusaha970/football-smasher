@@ -10,8 +10,19 @@ const fetchInitialPlayers = async (key) => {
   }
 };
 
+const getUserInput = () => {
+  const form = document.getElementById("userInp");
+  const input = document.getElementById("inpBox");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    fetchInitialPlayers(input.value);
+    input.value = "";
+  });
+};
+
 const showPlayersOnUi = (playerArr) => {
   if (playerArr) {
+    deleteOldBox();
     const container = document.getElementById("play-card-container");
     playerArr.forEach((player) => {
       let des = player.strDescriptionEN;
@@ -19,7 +30,7 @@ const showPlayersOnUi = (playerArr) => {
         des = des.slice(0, 145);
       }
       const div = document.createElement("div");
-      div.classList.add("col-12", "col-sm-6", "col-md-5");
+      div.classList.add("col-12", "col-sm-6", "col-md-5", "box-for-delete");
       div.innerHTML = `
         <div class="card" style="width: 100%">
         <img
@@ -58,4 +69,14 @@ const showPlayersOnUi = (playerArr) => {
   }
 };
 
+const deleteOldBox = () => {
+  const oldBoxCollection = document.getElementsByClassName("box-for-delete");
+  const oldBoxArr = Array.from(oldBoxCollection);
+  for (let i = 0; i < oldBoxArr.length; i++) {
+    const element = oldBoxArr[i];
+    element.remove();
+  }
+};
+
 fetchInitialPlayers("n");
+getUserInput();
